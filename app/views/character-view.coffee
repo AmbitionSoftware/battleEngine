@@ -3,7 +3,7 @@ View = require 'views/base/view'
 module.exports = class Character extends View
 	template: require './templates/character'
 	listen:
-		'onchange:attributes model' : 'justLog'
+		'change:attributes model' : 'render'
 
 	initialize: ->
 		super
@@ -15,6 +15,3 @@ module.exports = class Character extends View
 
 	getTemplateData: ->
 		@model.attributes
-
-	justLog: ->
-		console.log('render')
