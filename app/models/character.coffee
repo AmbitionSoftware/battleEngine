@@ -15,6 +15,7 @@ module.exports = class CharacterModel extends Model
 			coef: 1
 		resilience:
 			poison: 1
-		def: 30
-		attack: 20
+			armor: 30
+		power:
+			attack: 20
 
