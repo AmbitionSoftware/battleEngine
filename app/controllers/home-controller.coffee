@@ -10,10 +10,14 @@ module.exports = class HomeController extends Controller
     charactersOneCollection = @charactersOneCollection = new  CharactersCollection
     @charactersOneCollection.add name: 'Pandinou'
     @charactersOneCollection.add name: 'TeemoPanda'
+    @charactersOneCollection.add name: 'SuperMan'
+    @charactersOneCollection.add name: 'Batman'
 
     charactersTwoCollection = @charactersTwoCollection = new  CharactersCollection
     @charactersTwoCollection.add name: 'Lapinou'
     @charactersTwoCollection.add name: 'Chouqui'
+    @charactersTwoCollection.add name: 'IronMan'
+    @charactersTwoCollection.add name: 'Captain'
 
     arenaCollection = @arenaCollection = new  CharactersCollection
     @arenaCollection.add charactersOneCollection.models

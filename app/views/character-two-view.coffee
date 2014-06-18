@@ -16,6 +16,6 @@ module.exports = class CharacterTwoView extends View
 
 	generateView: (characterModel) ->
 		name = characterModel.attributes.name
-		container = @find('.character-'+ name)
+		container = @find '.character-'+ name
 		characterView = new Character autoRender: true, container: container, model: characterModel
 		@subview name + 'View', characterView
