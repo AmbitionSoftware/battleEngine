@@ -10,29 +10,44 @@ module.exports = class ArenaView extends View
 		damagesParams = 
 			characterModel: @collection.get 'c3'
 			property: 'life'
-			damages: 5
+			damages: 10
 			resilienceProperty: 'poison'
-		@damageOverTime(damagesParams, 3000, @damages, 20000)
+		@damageOverTime(damagesParams, 3000)
 
-	damageOverTime: (params, period, process, time) ->
-
+	damageOverTime: (params, period, time) ->
+		view = @
 		dot = setInterval(->
-			process(params.characterModel, params.property, params.damages, params.resilienceProperty)
-			if params.characterModel.get('life').current === 0
-				clearInterval dot
+			view.damages(params.characterModel, params.property, params.damages, params.resilienceProperty)
+			clearInterval dot if params.characterModel.get('life').current <= 0
 		, period)
 
 		if time
-			setInterval ->
+			setInterval -> 
 				clearInterval dot
-			, time
+			, time 
+
 
 	damages: (characterModel, property, damages, resilienceProperty) ->
+
+		# Set damage to the character
 		obj = characterModel.get property
 		newValue = characterModel.get(property).current - damages * characterModel.get('resilience')[resilienceProperty]
-		obj.current = newValue < 0 Math.round newValue : 0
+		if newValue <= 0 then obj.current = 0 else obj.current = Math.round newValue
 		characterModel.set obj
 
+		# Set character status
+		@characterStatus characterModel
+
+
 	characterStatus: (characterModel) ->
-		if lifePoints
+
+		# Get current character status and percent of life
+		currentStatus = characterModel.get 'status' 
+		perCentLife = 100 / characterModel.get('life').max * characterModel.get('life').current
+
+		# Set new character status
+		characterModel.set status: 'healthy' if perCentLife > 59 and currentStatus isnt 'healthy'
+		characterModel.set status: 'injured' if 59 >= perCentLife > 29 and currentStatus isnt 'injured'
+		characterModel.set status: 'critical' if 29 >= perCentLife > 0 and currentStatus isnt 'critical'
+		characterModel.set status: 'dead' if perCentLife is 0 and currentStatus isnt 'dead'
 
