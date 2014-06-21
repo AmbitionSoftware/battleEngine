@@ -1,9 +1,9 @@
 View = require 'views/base/view'
 Character = require 'views/character-view'
 
-module.exports = class CharacterTwoView extends View
+module.exports = class TeamTwoView extends View
 	autoRender: true
-	className: 'characterTwo'
+	className: 'teamTwo'
 	region: 'secondPlayer'
 	template: require './templates/teams'
 
