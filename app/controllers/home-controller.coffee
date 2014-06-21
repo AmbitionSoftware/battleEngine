@@ -1,31 +1,37 @@
 Controller = require 'controllers/base/controller'
 Arena = require 'views/arena-view'
-CharacterOne = require 'views/character-one-view'
-CharacterTwo = require 'views/character-two-view'
+TeamOne = require 'views/team-one-view'
+TeamTwo = require 'views/team-two-view'
 CharactersCollection = require 'models/characters-collection'
 
 module.exports = class HomeController extends Controller
 
   index: ->
-    charactersOneCollection = @charactersOneCollection = new  CharactersCollection
-    @charactersOneCollection.add name: 'Pandinou'
-    @charactersOneCollection.add name: 'TeemoPanda'
-    @charactersOneCollection.add name: 'SuperMan'
-    @charactersOneCollection.add name: 'Batman'
+  	# Generate collection of team one
+    teamOne = @teamOne = new  CharactersCollection
+    @teamOne.add name: 'Pandinou'
+    @teamOne.add name: 'TeemoPanda'
+    @teamOne.add name: 'SuperMan'
+    @teamOne.add name: 'Batman'
 
-    charactersTwoCollection = @charactersTwoCollection = new  CharactersCollection
-    @charactersTwoCollection.add name: 'Lapinou'
-    @charactersTwoCollection.add name: 'Chouqui'
-    @charactersTwoCollection.add name: 'IronMan'
-    @charactersTwoCollection.add name: 'Captain'
+    # Generate collection of team two
+    teamTwo = @teamTwo = new  CharactersCollection
+    @teamTwo.add name: 'Lapinou'
+    @teamTwo.add name: 'Chouqui'
+    @teamTwo.add name: 'IronMan'
+    @teamTwo.add name: 'Captain'
 
+    # Generate collection of arena
     arenaCollection = @arenaCollection = new  CharactersCollection
-    @arenaCollection.add charactersOneCollection.models
-    @arenaCollection.add charactersTwoCollection.models
+    @arenaCollection.add teamOne.models
+    @arenaCollection.add teamTwo.models
 
-    @reuse 'charactersView', ->
-      new CharacterOne collection: charactersOneCollection
-      new CharacterTwo collection: charactersTwoCollection 
+    # launch team view render
+    @reuse 'teamsView', ->
+      new TeamOne collection: teamOne
+      new TeamTwo collection: teamTwo 
 
+    # launch arena view render
     @reuse 'arenaView', ->
     	new Arena collection: arenaCollection
+
