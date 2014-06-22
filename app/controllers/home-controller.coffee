@@ -3,35 +3,34 @@ Arena = require 'views/arena-view'
 TeamOne = require 'views/team-one-view'
 TeamTwo = require 'views/team-two-view'
 CharactersCollection = require 'models/characters-collection'
+ArenasCollection = require 'models/arenas-collection'
+TeamsCollection = require 'models/teams-collection'
 
 module.exports = class HomeController extends Controller
 
   index: ->
-  	# Generate collection of team one
-    teamOne = @teamOne = new  CharactersCollection
-    @teamOne.add name: 'Pandinou'
-    @teamOne.add name: 'TeemoPanda'
-    @teamOne.add name: 'SuperMan'
-    @teamOne.add name: 'Batman'
 
-    # Generate collection of team two
-    teamTwo = @teamTwo = new  CharactersCollection
-    @teamTwo.add name: 'Lapinou'
-    @teamTwo.add name: 'Chouqui'
-    @teamTwo.add name: 'IronMan'
-    @teamTwo.add name: 'Captain'
+    # Get player team config
+    playerTeam = new  TeamsCollection
+    playerTeam.url = 'data/accountTeams.json'
+    playerTeam.fetch()
 
-    # Generate collection of arena
-    arenaCollection = @arenaCollection = new  CharactersCollection
-    @arenaCollection.add teamOne.models
-    @arenaCollection.add teamTwo.models
+    # Get enemy team config
+    enemyTeam = new  TeamsCollection
+    enemyTeam.url = 'data/enemyTeams.json'
+    enemyTeam.fetch()
 
     # launch team view render
     @reuse 'teamsView', ->
-      new TeamOne collection: teamOne
-      new TeamTwo collection: teamTwo 
+      new TeamOne model: playerTeam
+      new TeamTwo model: enemyTeam
+
+    # Generate collection of arena
+    @arenaCollection = new  ArenasCollection
+    @arenaCollection.add name: 'Black forest'
+    arenaModel = @arenaCollection.get 1
 
     # launch arena view render
     @reuse 'arenaView', ->
-    	new Arena collection: arenaCollection
+      new Arena model: arenaModel
 
