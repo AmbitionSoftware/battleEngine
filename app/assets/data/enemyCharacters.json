@@ -1,0 +1,139 @@
+[
+	{
+		"id": 5,
+		"name": "Lapinou",
+		"status": "healthy",
+		"level": 1,
+		"life": {
+			"current": 100,
+			"min": 0,
+			"max": 100,
+			"regenCoef": 1,
+			"recovery": {
+				"ratio": 0.05,
+				"duration": false,
+				"period": 5000
+			}
+		},
+		"experience": {
+			"current": 70,
+			"nextLevel": 100,
+			"coef": 1
+		},
+		"resilience": {
+			"poison": 1,
+			"fire": 1,
+			"water": 1,
+			"earth": 1,
+			"thunder": 1,
+			"dark": 1,
+			"armor": 30
+		},
+		"power": {
+			"attack": 20
+		}
+	},
+	{
+		"id": 6,
+		"name": "Chouqui",
+		"status": "healthy",
+		"level": 1,
+		"life": {
+			"current": 100,
+			"min": 0,
+			"max": 100,
+			"regenCoef": 1,
+			"recovery": {
+				"ratio": 0.05,
+				"duration": false,
+				"period": 5000
+			}
+		},
+		"experience": {
+			"current": 70,
+			"nextLevel": 100,
+			"coef": 1
+		},
+		"resilience": {
+			"poison": 1,
+			"fire": 1,
+			"water": 1,
+			"earth": 1,
+			"thunder": 1,
+			"dark": 1,
+			"armor": 30
+		},
+		"power": {
+			"attack": 20
+		}
+	},
+	{
+		"id": 7,
+		"name": "IronMan",
+		"status": "healthy",
+		"level": 1,
+		"life": {
+			"current": 100,
+			"min": 0,
+			"max": 100,
+			"regenCoef": 1,
+			"recovery": {
+				"ratio": 0.05,
+				"duration": false,
+				"period": 5000
+			}
+		},
+		"experience": {
+			"current": 70,
+			"nextLevel": 100,
+			"coef": 1
+		},
+		"resilience": {
+			"poison": 1,
+			"fire": 1,
+			"water": 1,
+			"earth": 1,
+			"thunder": 1,
+			"dark": 1,
+			"armor": 30
+		},
+		"power": {
+			"attack": 20
+		}
+	},
+	{
+		"id": 8,
+		"name": "Captain",
+		"status": "healthy",
+		"level": 1,
+		"life": {
+			"current": 100,
+			"min": 0,
+			"max": 100,
+			"regenCoef": 1,
+			"recovery": {
+				"ratio": 0.05,
+				"duration": false,
+				"period": 5000
+			}
+		},
+		"experience": {
+			"current": 70,
+			"nextLevel": 100,
+			"coef": 1
+		},
+		"resilience": {
+			"poison": 1,
+			"fire": 1,
+			"water": 1,
+			"earth": 1,
+			"thunder": 1,
+			"dark": 1,
+			"armor": 30
+		},
+		"power": {
+			"attack": 20
+		}
+	}
+]
+

@@ -3,4 +3,3 @@ CharacterModel = require 'models/character'
 
 module.exports = class CharactersCollection extends Collection
 	model: CharacterModel
-
