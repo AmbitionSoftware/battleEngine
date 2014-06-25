@@ -10,9 +10,9 @@
 			"max": 100,
 			"regenCoef": 1,
 			"recovery": {
-				"ratio": 0.05,
+				"ratio": 0.01,
 				"duration": false,
-				"period": 5000
+				"period": 1000
 			}
 		},
 		"experience": {
@@ -44,9 +44,9 @@
 			"max": 100,
 			"regenCoef": 1,
 			"recovery": {
-				"ratio": 0.05,
+				"ratio": 0.01,
 				"duration": false,
-				"period": 5000
+				"period": 1000
 			}
 		},
 		"experience": {
@@ -78,9 +78,9 @@
 			"max": 100,
 			"regenCoef": 1,
 			"recovery": {
-				"ratio": 0.05,
+				"ratio": 0.01,
 				"duration": false,
-				"period": 5000
+				"period": 1000
 			}
 		},
 		"experience": {
@@ -112,9 +112,9 @@
 			"max": 100,
 			"regenCoef": 1,
 			"recovery": {
-				"ratio": 0.05,
+				"ratio": 0.01,
 				"duration": false,
-				"period": 5000
+				"period": 1000
 			}
 		},
 		"experience": {
