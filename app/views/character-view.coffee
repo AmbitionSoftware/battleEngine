@@ -10,14 +10,63 @@ module.exports = class Character extends View
     # Temp values
     @dot = {}
     @eot = {}
+    @hot = {}
+
+    # Natural life recovery
+    @naturalLifeRecovery()
 
     # Event to subscribe
-    #TODO: finish enervation functionality but make life recovery before
+    #TODO: finish enervation functionality
     # @subscribeEvent 'enervation', @enervationMediator
     @subscribeEvent 'damage', @damageMediator
 
+
   getTemplateData: ->
     @model.attributes
+
+
+  ##########################
+  ### CHARACTER RECOVERY ###
+  ##########################
+
+  naturalLifeRecovery: ->
+
+    # Set values
+    ratio = @model.get('life').recovery.ratio
+    period =  @model.get('life').recovery.period
+    duration = @model.get('life').recovery.duration
+
+    # launch natural rcovery
+    @healOverTime 'natural', ratio, period, duration
+
+
+  healOverTime: (type, ratio, period, duration) ->
+
+    # Set context
+    view = @
+
+    # Launch enervation loop
+    @hot[type] = setInterval(->
+      view.heal ratio
+    , period)
+
+    # Break enervation loop if needed
+    if duration
+      setInterval -> 
+        clearInterval view.hot[type]
+        clearInterval view.dot[type] if view.model.get('life').current <= 0
+      , duration
+
+  heal: (ratio, resurect) ->
+    
+    status = @model.get 'status'
+
+    if resurect or status isnt 'dead'
+      obj = @model.get 'life'
+      newValue = obj['max'] * ratio + obj['current']
+      obj["current"] = if newValue > obj["max"] then obj["max"] else newValue
+      @updateStatus()
+      @render()
 
 
   #############################
@@ -104,8 +153,9 @@ module.exports = class Character extends View
     if newValue <= 0 then newValue = 0 else newValue = Math.round newValue
     # Set character model with new value
     obj.current = newValue
+
     # Update character status
-    @characterStatus()
+    @updateStatus()
 
     # Update view
     @render()
@@ -116,7 +166,7 @@ module.exports = class Character extends View
   ### CHARACTER STATUS ###
   ########################
 
-  characterStatus: ->
+  updateStatus: ->
 
     # Get current character status and percent of life
     currentStatus = @model.get 'status' 

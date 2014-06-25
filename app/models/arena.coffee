@@ -5,10 +5,10 @@ module.exports = class ArenaModel extends Model
 		id: 1
 		name: 'ArenaName'
 		damages:
-			period: 3000
-			deals: 10
+			period: 2000
+			deals: 15
 			type: 'poison'
-			duration: 3000
+			duration: 100000
 			iterationPeriod: false
 		enervations:
 			life: [

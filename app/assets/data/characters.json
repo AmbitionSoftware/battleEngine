@@ -9,7 +9,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -39,11 +43,15 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
-			"nextLevel": 100,
+			"nextLevel": 100,	
 			"coef": 1
 		},
 		"resilience": {
@@ -69,7 +77,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -99,7 +111,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -129,7 +145,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -159,7 +179,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -189,7 +213,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
@@ -219,7 +247,11 @@
 			"min": 0,
 			"max": 100,
 			"regenCoef": 1,
-			"recovery": 1
+			"recovery": {
+				"ratio": 0.01,
+				"duration": false,
+				"period": 1000
+			}
 		},
 		"experience": {
 			"current": 70,
