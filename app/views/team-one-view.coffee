@@ -23,8 +23,14 @@ module.exports = class TeamOneView extends View
 
   render: ->
     super
+    # Generate each character view
     @collection.models.forEach @generateView, @
+
+    # Send team ready status
     Chaplin.mediator.publish 'teamOneReady', 'teamOne'
+
+    # Send collection to action view
+    Chaplin.mediator.publish 'playerTeamCollection', @collection
 
   generateView: (characterModel) ->
     name = characterModel.attributes.name

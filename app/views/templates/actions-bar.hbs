@@ -1,0 +1,28 @@
+<ul class="picture">
+  {{#each fighters}}
+  <li class="character-{{attributes.name}}  {{#unless @index}} active {{/unless}}">
+    <img src="{{attributes.image}}" />
+  </li>
+  {{/each}}
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>HP</td> 
+      <td>Actions</td>
+      <td>PA</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each fighters}}
+    <tr class="character-{{attributes.name}} {{#unless @index}} active {{/unless}}">
+      <td class="name">{{attributes.name}}</td>
+      <td class="life"></td> 
+      <td class="actionButton"></td>
+      <td class="actionPoint">{{attributes.energy.current}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

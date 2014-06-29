@@ -4,6 +4,7 @@
 		"name": "Pandinou",
 		"status": "healthy",
 		"level": 1,
+		"image": "/images/pandinou.jpg",
 		"life": {
 			"current": 100,
 			"min": 0,
@@ -13,6 +14,15 @@
 				"ratio": 0.01,
 				"duration": false,
 				"period": 1000
+			}
+		},
+		"energy": {
+			"current": 10,
+			"min": 0,
+			"recovery": {
+				"quantity": 1,
+				"duration": false,
+				"period": 1
 			}
 		},
 		"experience": {
@@ -49,6 +59,15 @@
 				"period": 1000
 			}
 		},
+		"energy": {
+			"current": 10,
+			"min": 0,
+			"recovery": {
+				"quantity": 1,
+				"duration": false,
+				"period": 1
+			}
+		},
 		"experience": {
 			"current": 70,
 			"nextLevel": 100,
@@ -83,6 +102,15 @@
 				"period": 1000
 			}
 		},
+		"energy": {
+			"current": 10,
+			"min": 0,
+			"recovery": {
+				"quantity": 1,
+				"duration": false,
+				"period": 1
+			}
+		},
 		"experience": {
 			"current": 70,
 			"nextLevel": 100,
@@ -115,6 +143,15 @@
 				"ratio": 0.01,
 				"duration": false,
 				"period": 1000
+			}
+		},
+		"energy": {
+			"current": 10,
+			"min": 0,
+			"recovery": {
+				"quantity": 1,
+				"duration": false,
+				"period": 1
 			}
 		},
 		"experience": {

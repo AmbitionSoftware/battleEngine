@@ -2,6 +2,7 @@ Controller = require 'controllers/base/controller'
 Arena = require 'views/arena-view'
 TeamOne = require 'views/team-one-view'
 TeamTwo = require 'views/team-two-view'
+ActionsBar = require 'views/actions-bar-view'
 CharactersCollection = require 'models/characters-collection'
 ArenasCollection = require 'models/arenas-collection'
 TeamsCollection = require 'models/teams-collection'
@@ -22,8 +23,10 @@ module.exports = class HomeController extends Controller
 
     # launch team view render
     @reuse 'teamsView', ->
+      new ActionsBar
       new TeamOne model: playerTeam
       new TeamTwo model: enemyTeam
+
 
     # Generate collection of arena
     @arenaCollection = new  ArenasCollection

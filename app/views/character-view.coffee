@@ -182,3 +182,6 @@ module.exports = class Character extends View
     # Set new status
     @model.set status: newStatus if newStatus isnt currentStatus
 
+    # Send event character model has changed
+    Chaplin.mediator.publish 'characterUpdate', @model.get 'id'
+
