@@ -8,4 +8,5 @@ module.exports = class SiteView extends View
     firstPlayer: '#playerOne'
     secondPlayer: '#playerTwo'
     battleGround: '#battleGround'
+    actionsBar: '#playerActions'
   template: require './templates/site'

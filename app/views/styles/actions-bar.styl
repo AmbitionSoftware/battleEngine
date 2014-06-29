@@ -1,0 +1,64 @@
+@import 'nib'
+
+#playerActions
+  width: 90%;
+  min-height: 200px;
+  margin: auto;
+
+  .actionsBar
+    margin: 10px 0 0 0;
+    background-color: #ddd;
+
+    .picture
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+
+      li
+        display: none;
+
+        &.active
+          display: block;
+
+    table
+      float: right;
+      width: 80%;
+
+      thead
+        border-bottom: 1px solid #ccc;
+
+        tr
+          text-align: center;
+
+      tr
+        font-size: 14px;
+
+        &.active
+          background-color: #eee;
+
+        td.name
+          width: 150px;
+
+        td.life
+          width: 300px;
+          padding: 5px 15px;
+
+          span
+            float: right;
+            font-size: 11px;
+            line-height: 17px;
+
+          progress
+            width: 100%;
+
+        td.actionButton
+          width: 150px;
+          text-align: center;
+
+        td.actionPoint
+          text-align: center;
+
+
+
+
