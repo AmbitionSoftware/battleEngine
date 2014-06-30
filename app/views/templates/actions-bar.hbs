@@ -1,6 +1,6 @@
 <ul class="picture">
   {{#each fighters}}
-  <li class="character-{{attributes.name}}  {{#unless @index}} active {{/unless}}">
+  <li class="character-{{attributes.id}}">
     <img src="{{attributes.image}}" />
   </li>
   {{/each}}
@@ -17,7 +17,7 @@
   </thead>
   <tbody>
     {{#each fighters}}
-    <tr class="character-{{attributes.name}} {{#unless @index}} active {{/unless}}">
+    <tr id="character-{{attributes.id}}" class="character">
       <td class="name">{{attributes.name}}</td>
       <td class="life"></td> 
       <td class="actionButton"></td>

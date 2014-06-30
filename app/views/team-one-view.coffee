@@ -12,28 +12,38 @@ module.exports = class TeamOneView extends View
   initialize: ->
     super
     view = @
+    @subscribeEvent 'playerActiveCharacterID', @setActiveCharacter
     @collection = new  CharactersCollection
     @collection.url = 'data/accountCharacters.json'
     @collection.fetch
       success: (collection) ->
         view.render()
 
+
   getTemplateData: ->
     fighters: @collection.models
+
 
   render: ->
     super
     # Generate each character view
     @collection.models.forEach @generateView, @
-
     # Send team ready status
     Chaplin.mediator.publish 'teamOneReady', 'teamOne'
-
     # Send collection to action view
     Chaplin.mediator.publish 'playerTeamCollection', @collection
 
+
   generateView: (characterModel) ->
-    name = characterModel.attributes.name
-    container = @find '.character-'+ name
+    id = characterModel.attributes.id
+    container = @find '.character-'+ id
     characterView = new CharacterView autoRender: true, container: container, model: characterModel
-    @subview name + 'View', characterView
+    @subview 'character-'+ id + 'View', characterView
+
+
+  setActiveCharacter: (id) ->
+    # Remove all active classes on table
+    @findAll('.fighters li').forEach (elem) ->
+      elem.classList.remove "active"
+    # Add active classes on table
+    @find(".character-" + id).classList.add "active"

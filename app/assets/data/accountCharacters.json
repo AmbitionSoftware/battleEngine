@@ -5,6 +5,7 @@
 		"status": "healthy",
 		"level": 1,
 		"image": "/images/pandinou.jpg",
+		"focusing": 5000,
 		"life": {
 			"current": 100,
 			"min": 0,
@@ -48,6 +49,7 @@
 		"name": "Teemo",
 		"status": "healthy",
 		"level": 1,
+		"focusing": 5000,
 		"life": {
 			"current": 100,
 			"min": 0,
@@ -91,6 +93,7 @@
 		"name": "Superman",
 		"status": "healthy",
 		"level": 1,
+		"focusing": 5000,
 		"life": {
 			"current": 100,
 			"min": 0,
@@ -134,6 +137,7 @@
 		"name": "Batman",
 		"status": "healthy",
 		"level": 1,
+		"focusing": 5000,
 		"life": {
 			"current": 100,
 			"min": 0,
