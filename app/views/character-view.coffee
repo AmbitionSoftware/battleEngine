@@ -8,12 +8,13 @@ module.exports = class Character extends View
     super
 
     # Temp values
+    turn = 0
     @dot = {}
     @eot = {}
     @hot = {}
 
     # Natural life recovery
-    @naturalLifeRecovery()
+    # @naturalLifeRecovery()
 
     # Event to subscribe
     #TODO: finish enervation functionality
@@ -29,84 +30,84 @@ module.exports = class Character extends View
   ### CHARACTER RECOVERY ###
   ##########################
 
-  naturalLifeRecovery: ->
+  # naturalLifeRecovery: ->
 
-    # Set values
-    ratio = @model.get('life').recovery.ratio
-    period =  @model.get('life').recovery.period
-    duration = @model.get('life').recovery.duration
+  #   # Set values
+  #   ratio = @model.get('life').recovery.ratio
+  #   period =  @model.get('life').recovery.period
+  #   duration = @model.get('life').recovery.duration
 
-    # launch natural rcovery
-    @healOverTime 'natural', ratio, period, duration
+  #   # launch natural rcovery
+  #   @healOverTime 'natural', ratio, period, duration
 
 
-  healOverTime: (type, ratio, period, duration) ->
+  # healOverTime: (type, ratio, period, duration) ->
 
-    # Set context
-    view = @
+  #   # Set context
+  #   view = @
 
-    # Launch enervation loop
-    @hot[type] = setInterval(->
-      view.heal ratio
-    , period)
+  #   # Launch enervation loop
+  #   @hot[type] = setInterval(->
+  #     view.heal ratio
+  #   , period)
 
-    # Break enervation loop if needed
-    if duration
-      setInterval -> 
-        clearInterval view.hot[type]
-        clearInterval view.dot[type] if view.model.get('life').current <= 0
-      , duration
+  #   # Break enervation loop if needed
+  #   if duration
+  #     setInterval -> 
+  #       clearInterval view.hot[type]
+  #       clearInterval view.dot[type] if view.model.get('life').current <= 0
+  #     , duration
 
-  heal: (ratio, resurect) ->
+  # heal: (ratio, resurect) ->
     
-    status = @model.get 'status'
+  #   status = @model.get 'status'
 
-    if resurect or status isnt 'dead'
-      obj = @model.get 'life'
-      newValue = obj['max'] * ratio + obj['current']
-      obj["current"] = if newValue > obj["max"] then obj["max"] else newValue
-      @updateStatus()
-      @render()
+  #   if resurect or status isnt 'dead'
+  #     obj = @model.get 'life'
+  #     newValue = obj['max'] * ratio + obj['current']
+  #     obj["current"] = if newValue > obj["max"] then obj["max"] else newValue
+  #     @updateStatus()
+  #     @render()
 
 
   #############################
   ### CHARACTER ENERVATIONS ###
   #############################
 
-  enervationMediator: (enervations) ->
+  # enervationMediator: (enervations) ->
   
-    # Set context
-    view = @
+  #   # Set context
+  #   view = @
 
-    enervations.life.forEach (enervation) ->
-      view.enervationOverTime 'life', enervation.property, enervation.value, enervation.period, enervation.duration
+  #   enervations.life.forEach (enervation) ->
+  #     view.enervationOverTime 'life', enervation.property, enervation.value, enervation.period, enervation.duration
     
 
 
-  enervationOverTime: (enervationtType, property, value, period, duration) ->
+  # enervationOverTime: (enervationtType, property, value, period, duration) ->
 
-    # Set context
-    view = @
+  #   # Set context
+  #   view = @
 
-    # Launch enervation loop
-    @eot[property] = setInterval(->
-      view.enervation(enervationtType, property, value)
-    , period)
+  #   # Launch enervation loop
+  #   @eot[property] = setInterval(->
+  #     view.enervation(enervationtType, property, value)
+  #   , period)
 
-    # Break enervation loop if needed
-    if duration
-      setInterval -> 
-        clearInterval view.eot[property]
-      , duration
+  #   # Break enervation loop if needed
+  #   if duration
+  #     setInterval -> 
+  #       clearInterval view.eot[property]
+  #     , duration
 
 
-  enervation: (enervationtType, property, value) ->
+  # enervation: (enervationtType, property, value) ->
     
-    # Get node property
-    obj = @model.get enervationtType
-    # Calculate new value
-    obj[property] = obj[property] * value
-    console.log obj
+  #   # Get node property
+  #   obj = @model.get enervationtType
+  #   # Calculate new value
+  #   obj[property] = obj[property] * value
+  #   console.log obj
 
 
 
